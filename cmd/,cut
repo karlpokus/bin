@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# wat?
+# like cut but only works on space delimited word lists
+
+# usage
+# wordlist | ,cut <field>
+
+FIELD=$1
+
+if test -z $FIELD; then
+  echo ",cut error: missing field arg" >&2
+  exit 1
+fi
+
+while read line; do
+  COUNT=$(wc -w <<< "$line")
+  if test $FIELD -gt $COUNT; then
+    echo ",cut error: field arg is out of bounds" >&2
+    exit 1
+  fi
+  tr -s ' ' <<< "$line" | cut -d " " -f $FIELD
+done < /dev/stdin
