@@ -1,4 +1,4 @@
-VERSION := $(shell git describe --always)
+VERSION := $(shell git describe --always --tags)
 GOFLAGS := -trimpath -ldflags="-s -w -X main.version=$(VERSION)"
 PREFIX=","
 
