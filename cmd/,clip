@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# wat?
+# copy to-, and paste from the system clipboard
+
+# USAGE
+# copy from stdin
+# ... | ,clip
+# paste
+# ,clip
+
+if test -t 0; then
+  # paste
+  xclip -o -selection clipboard
+else
+  # copy
+  xclip -i -selection clipboard < /dev/stdin
+fi
