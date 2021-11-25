@@ -3,7 +3,7 @@ GOFLAGS := -trimpath -ldflags="-s -w -X main.version=$(VERSION)"
 PREFIX=","
 
 install:
-	ln -siv -t ~/bin $$PWD/cmd/* $$PWD/bin/*
+	ln -siv -t ~/bin $$PWD/script/* $$PWD/bin/*
 
 build: test build-cidr
 
