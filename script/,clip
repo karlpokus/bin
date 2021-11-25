@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 
-# wat?
-# copy to-, and paste from the system clipboard
+HELP="copy and paste to/from the system clipboard
 
-# USAGE
-# copy from stdin
-# ... | ,clip
-# paste
-# ,clip
+USAGE
+  pass text on stdin to copy
+  $ ,clip < text
+  paste to stdout
+  $ ,clip"
+
+if test $1 = "-h"; then
+  echo "$HELP"
+  exit 0
+fi
 
 if test -t 0; then
   # paste

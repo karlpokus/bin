@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
 
-# wat?
-# like cut but only works on space delimited word lists
+HELP="like cut but only for space-delimited word lists
 
-# usage
-# wordlist | ,cut <field>
+USAGE
+  $ ,cut <field> < wordlist"
+
+if test $1 = "-h"; then
+  echo "$HELP"
+  exit 0
+fi
 
 FIELD=$1
 

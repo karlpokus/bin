@@ -10,9 +10,10 @@ import (
 	"github.com/apparentlymart/go-cidr/cidr"
 )
 
-var version string
-
-var v = flag.Bool("v", false, "print version and exit")
+var (
+	version string
+	v = flag.Bool("v", false, "print version and exit")
+)
 
 type data struct {
 	count uint64
@@ -32,6 +33,13 @@ func parse(s string) (data, error) {
 }
 
 func main() {
+	flag.Usage = func() {
+		w := flag.CommandLine.Output()
+		fmt.Fprintf(w, "dump cidr details\n\n")
+		fmt.Fprintf(w, "USAGE\n")
+		fmt.Fprintf(w, "  $ ,cidr <cidr> <opts>\n")
+    flag.PrintDefaults()
+	}
 	flag.Parse()
 	if *v {
 		fmt.Println(version)
