@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-HELP="copy and paste to/from the system clipboard
+HELP=",clip $(git describe --always --tags)
+
+copy and paste to/from the system clipboard
 
 USAGE
   pass text on stdin to copy

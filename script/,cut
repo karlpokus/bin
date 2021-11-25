@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-HELP="like cut but only for space-delimited word lists
+HELP=",cut $(git describe --always --tags)
+
+like cut but only for space-delimited word lists
 
 USAGE
   $ ,cut <field> < wordlist"

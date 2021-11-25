@@ -1,7 +1,6 @@
 package main
 
 import (
-	"flag"
 	"fmt"
 	"net"
 	"os"
@@ -10,10 +9,7 @@ import (
 	"github.com/apparentlymart/go-cidr/cidr"
 )
 
-var (
-	version string
-	v = flag.Bool("v", false, "print version and exit")
-)
+var version string
 
 type data struct {
 	count uint64
@@ -32,21 +28,20 @@ func parse(s string) (data, error) {
 	return data{count, first, last}, nil
 }
 
+var helptext = fmt.Sprintf(`,cidr %s
+
+dump cidr details
+
+USAGE
+  $ ,cidr <cidr>`, version)
+
 func main() {
-	flag.Usage = func() {
-		w := flag.CommandLine.Output()
-		fmt.Fprintf(w, "dump cidr details\n\n")
-		fmt.Fprintf(w, "USAGE\n")
-		fmt.Fprintf(w, "  $ ,cidr <cidr> <opts>\n")
-    flag.PrintDefaults()
-	}
-	flag.Parse()
-	if *v {
-		fmt.Println(version)
-		return
-	}
 	if len(os.Args) == 1 {
 		fmt.Println("error: missing arg")
+		return
+	}
+	if os.Args[1] == "-h" {
+		fmt.Println(helptext)
 		return
 	}
 	data, err := parse(os.Args[1])
