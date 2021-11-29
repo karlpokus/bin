@@ -10,7 +10,7 @@ USAGE
   paste to stdout
   $ ,clip"
 
-if test $1 = "-h"; then
+if test "$1" = "-h"; then
   echo "$HELP"
   exit 0
 fi
