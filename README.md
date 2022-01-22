@@ -10,5 +10,8 @@ $ make install
 
 Even works with tab-completion ootb `,<TAB>`!
 
+# bugs
+- [x] git tag for scripts runs in pwd
+
 # license
 MIT

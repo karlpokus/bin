@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-HELP=",cut $(git describe --always --tags)
+VERSION=
+
+HELP=",cut $VERSION
 
 like cut but only for space-delimited word lists
 

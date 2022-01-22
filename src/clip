@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-HELP=",clip $(git describe --always --tags)
+VERSION=
+
+HELP=",clip $VERSION
 
 copy and paste to/from the system clipboard
 
